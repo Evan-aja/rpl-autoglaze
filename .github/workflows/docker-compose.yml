@@ -1,0 +1,23 @@
+name: System Build Test with Docker
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Make .env
+      run: printf "MYSQL_DATABASE=default_database\nMYSQL_ROOT_PASSWORD=password" > .env
+      
+    - name: Test docker-compose file
+      uses: isbang/compose-action@v1.4.0
+      with:
+        compose-file: "./docker-compose.yml"
+        up-flags: "--build"
+        down-flags: "--volumes"
