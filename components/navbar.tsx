@@ -18,7 +18,7 @@ export default function NavBar(){
                             </g>
                         </svg>
                     </a>
-                    <div className="relative hidden lg:flex items-center ml-auto">
+                    <div className="relative flex items-center ml-auto">
                         <nav className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
                         <ul className="flex space-x-8">
                             <li>
@@ -38,7 +38,7 @@ export default function NavBar(){
                             </a>
                         </div>
                     </div>
-                    <button type="button" className="ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300">
+                    {/* <button type="button" className="ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300">
                         <span className="sr-only">Search
                         </span>
                         <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -57,7 +57,7 @@ export default function NavBar(){
                             </path>
                         </svg>
                         </button>
-                    </div>
+                    </div> */}
                     </div>
                 </div>
                 </div>
