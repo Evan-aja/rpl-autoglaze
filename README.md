@@ -1,7 +1,7 @@
 ### Cara Nyiapin Dev-env RPL-AUTOGLAZE
 
 1. Install `docker` + `docker-compose`
-2. Clone repository pakai Git `git clone https://github.com/Evan-aja/rpl-konsultasi`
+2. Clone repository pakai Git `git clone https://github.com/Evan-aja/rpl-autoglaze`
 3. Buka hasil clone di VSCode
 4. Copy .env.example jadi .env (Jangan Cut/Rename)
 5. Isi variable dengan value sendiri
