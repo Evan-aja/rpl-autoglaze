@@ -10,9 +10,53 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model user {
   id Int @id @default(autoincrement())
-  email String @unique
-  name String?
+  username String @unique
   password String?
+  phone String
+  user_level Int
+  customer customer?
+  admin admin?
+}
+
+model customer {
+  id Int @id @default(autoincrement())
+  user_id Int @unique
+  user user @relation(fields: [user_id], references: [id])
+  booking booking[]
+}
+
+model admin {
+  id Int @id @default(autoincrement())
+  user_id Int @unique
+  user user @relation(fields: [user_id], references: [id])
+  layanan layanan?
+  artikel artikel?
+}
+
+model booking {
+  id Int @id @default(autoincrement())
+  layanan_id Int
+  customer_id Int
+  layanan layanan @relation(fields: [layanan_id],references: [id])
+  customer customer @relation(fields: [customer_id],references: [id])
+  waktu DateTime
+}
+
+model layanan {
+  id Int @id @default(autoincrement())
+  admin_id Int @unique
+  admin admin @relation(fields: [admin_id],references: [id])
+  jenis String
+  keterangan String
+  booking booking[]
+}
+
+model artikel {
+  id Int @id @default(autoincrement())
+  judul String @unique
+  isi String
+  admin_id Int @unique
+  admin admin @relation(fields: [admin_id],references: [id])
 }
