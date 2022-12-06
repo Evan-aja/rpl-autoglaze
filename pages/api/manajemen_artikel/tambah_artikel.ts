@@ -24,7 +24,8 @@ export default async function handler(
           admin_id: body.admin_id
       }
     })
-  }catch(e){
+  }
+  catch(e){
     prisma.$disconnect
     res.status(500).json({
       success: false,
