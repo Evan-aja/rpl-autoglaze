@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { PrismaClient } from '@prisma/client'
+import { booking,PrismaClient } from '@prisma/client'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async function handler(
@@ -8,7 +8,7 @@ export default async function handler(
     const prisma=new PrismaClient()
     prisma.$connect
     try {
-        let result = await prisma.booking.findMany()
+        let result = await prisma..findMany()
         prisma.$disconnect
         res.status(200).json({result})
     }catch(e){

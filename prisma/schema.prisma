@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model user {
+model user{
   id Int @id @default(autoincrement())
   username String @unique
   password String?
@@ -20,14 +20,14 @@ model user {
   admin admin?
 }
 
-model customer {
+model customer{
   id Int @id @default(autoincrement())
   user_id Int @unique
   user user @relation(fields: [user_id], references: [id])
   booking booking[]
 }
 
-model admin {
+model admin{
   id Int @id @default(autoincrement())
   user_id Int @unique
   user user @relation(fields: [user_id], references: [id])
@@ -35,7 +35,7 @@ model admin {
   artikel artikel?
 }
 
-model booking {
+model booking{
   id Int @id @default(autoincrement())
   layanan_id Int
   customer_id Int
@@ -44,7 +44,7 @@ model booking {
   waktu DateTime
 }
 
-model layanan {
+model layanan{
   id Int @id @default(autoincrement())
   admin_id Int @unique
   admin admin @relation(fields: [admin_id],references: [id])
@@ -53,7 +53,7 @@ model layanan {
   booking booking[]
 }
 
-model artikel {
+model artikel{
   id Int @id @default(autoincrement())
   judul String @unique
   isi String
