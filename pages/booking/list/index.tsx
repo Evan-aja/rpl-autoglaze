@@ -25,6 +25,7 @@ const List: React.FC<Props> = props =>{
             <table className="table-auto border-separate border-spacing-2 border border-slate-500">
                 <thead>
                     <tr>
+                        <th className="border border-slate-600 p-8 text-left">Nomor</th>
                         <th className="border border-slate-600 p-8 text-left">Layanan</th>
                         <th className="border border-slate-600 p-8 text-left">Small</th>
                         <th className="border border-slate-600 p-8 text-left">Medium</th>
@@ -34,6 +35,7 @@ const List: React.FC<Props> = props =>{
                 <tbody>
                 {props.layanan && props.layanan.map((i) => (
                     <tr>
+                        <td className="border border-slate-600 p-8 text-left">{i.id}</td>
                         <td className="border border-slate-600 p-8 text-left">{i.jenis}</td>
                         <td className="border border-slate-600 p-8 text-left">{i.small}</td>
                         <td className="border border-slate-600 p-8 text-left">{i.medium}</td>
