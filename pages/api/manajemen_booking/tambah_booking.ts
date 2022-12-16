@@ -9,17 +9,18 @@ export default async function handler(
   const prisma=new PrismaClient()
   const body=req.body
   let waktu:Date
-  if (body.customer_id == null || body.layanan_id == null || body.waktu == null){
+  if (body.pilihan == null || body.layanan == null || body.waktu == null){
     res.status(400).json({
       success: false,
       error: null,
       message: "data kosong"
     })
   }
+  console.log(body)
   try{
     waktu=new Date(body.waktu)
   }catch(e){
-    res.status(400).json({ 
+    return  res.status(400).json({ 
       success: false,
       error: e,
       message: "format waktu salah"
@@ -29,19 +30,20 @@ export default async function handler(
   try {
     await prisma.booking.create({
       data:{
-        customer_id: body.customer_id,
-        layanan_id: body.layanan_id,
-        waktu: new Date(body.waktu)
+        customer_id: 1,
+        layanan_id: Number(body.layanan),
+        waktu: new Date(body.waktu),
+        keterangan: body.pilihan
       }
     })
   }catch(e){
     prisma.$disconnect
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       error: null,
       message: "server tidak dapat dihubungi"
     })
     }
   prisma.$disconnect
-  res.status(200).redirect("/")
+  return res.status(200).redirect("/booking/list")
 }

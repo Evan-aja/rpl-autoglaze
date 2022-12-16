@@ -39,6 +39,7 @@ model booking {
   id Int @id @default(autoincrement())
   layanan_id Int
   customer_id Int
+  keterangan String
   layanan layanan @relation(fields: [layanan_id],references: [id])
   customer customer @relation(fields: [customer_id],references: [id])
   waktu DateTime
@@ -49,7 +50,9 @@ model layanan {
   admin_id Int @unique
   admin admin @relation(fields: [admin_id],references: [id])
   jenis String
-  keterangan String
+  small String
+  medium String
+  large String
   booking booking[]
 }
 
